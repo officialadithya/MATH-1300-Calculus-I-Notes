@@ -1,0 +1,114 @@
+\documentclass[oneside]{book}
+
+\include{preamble}
+\geometry{left=2.54cm}
+\geometry{right=2.54cm}
+\colorlet{chaptergrey}{black}
+
+\include{title}
+
+\begin{comment}
+\usepackage{draftwatermark}
+
+\SetWatermarkText{Draft: \today}
+\SetWatermarkColor[gray]{0.5}
+\SetWatermarkFontSize{1cm}
+\SetWatermarkAngle{90}
+\SetWatermarkHorCenter{20cm}
+\end{comment}
+
+\begin{document}
+
+\begin{center} 
+    \begin{minipage}{\textwidth}
+        \maketitle
+        \begin{center}
+        \begin{tabular}{c}
+            UNIVERSITY OF COLORADO BOULDER \\
+            \hline \\
+        \end{tabular}
+        \\
+        \includegraphics[scale=0.2]{Graphics/CU.png}
+        \end{center}
+    \end{minipage}
+\end{center}
+
+\vfill
+\rightline{\textbf{EDITION 1}}
+\frontmatter
+
+\begin{center}
+    \includegraphics[scale=1.5, width=\textwidth]{Graphics/latex.png}
+\end{center}
+
+\pagebreak
+
+\tableofcontents
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+
+\pagebreak
+
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+
+\input{Chapters/preface.tex}
+
+\mainmatter
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{Functions and Models} \label{chapter:funcmod}
+
+    \input{Chapters/functionsAndModels.tex}
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{Limits and Derivatives} \label{chapter:limder}
+
+    \input{Chapters/limitsAndDerivatives.tex}
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{Differentiation Rules} \label{chapter:diffrules}
+
+    \input{Chapters/differentiationRules.tex}
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{Applications of Differentiation} \label{chapter:appdiff}
+
+    \input{Chapters/applicationsOfDifferentiation.tex}
+
+\begin{savequote}
+
+\end{savequote}
+\chapter{Integrals} \label{chapter:integrals}
+
+    \input{Chapters/integrals.tex}
+
+\pagebreak
+
+% \chapter*{}
+% \addcontentsline{toc}{chapter}{Calculus I as a Word Cloud}
+
+% \vspace*{\fill}
+% \begin{center}
+%    \includegraphics[scale=0.8]{Graphics/wordcloudcalculusi.png}
+% \end{center}
+% \vspace*{\fill}
+
+% \pagebreak
+
+\chapter*{}
+\addcontentsline{toc}{chapter}{List of Theorems and Definitions}
+\markboth{LIST OF THEOREMS AND DEFINITIONS}{LIST OF THEOREMS AND DEFINITIONS}
+
+    \input{References/listOfLabels.tex}
+
+\end{document}
