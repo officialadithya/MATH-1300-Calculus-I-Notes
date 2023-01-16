@@ -1,6 +1,630 @@
 \section{Week 1: January 16 -- January 20}
 
+    \subsection{The Tangent and Velocity Problems}
+
+        We seek to find the equation of a line \(L(x)\) that touches the curve created by \(f(x)\) at only one point \((x_0,f(x_0))\) \textit{near} \(x=x_0\). To better visualize this, imagine \(f(x)\) to be the path a car drives. We seek to find the line that the car would follow if the driver immediately jerked the wheel to the straight position at some point \(x_0\). Consider the following graphs.
+        \begin{center}
+            \begin{tabular}{cc}
+                \begin{tikzpicture}
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^3-x+5}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {2*x+3}; 
+                        \addplot [only marks] table {
+						1 5
+						};
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}
+                    \begin{axis} [def]
+                        \addplot [domain=-5:5, restrict y to domain=-10:10] {-3/(x^2-4)}; 
+                        \addplot [domain=-5:5, restrict y to domain=-10:10] {2*x/3+1/3}; 
+                        \addplot [only marks] table {
+						1 1
+						};
+                    \end{axis}
+                \end{tikzpicture}
+            \end{tabular}
+        \end{center}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        While it can be easy to sketch this line, finding the equation is certainly not trivial. The difficulty lies in finding the slope \(m\) of the line. Then, the equation is given by the point-slope formula. That is,
+        \begin{equation*}
+            L(x)-f(x_0)=m(x-x_0)\implies L(x)=f(x_0)+m(x-x_0).
+        \end{equation*}
+        We only have one point, \(x_0\) at our disposal, yet we need two points to calculate the slope. We will choose our second point, \(x_1\), to be somewhere near \(x_0\) to approximate the slope. Recall the slope of the line formed by \(x_0\) and \(x_1\), or equivalently, the average slope of \(f(x)\) on the interval \([x_0,x_1]\) is
+        \begin{equation*}
+            \bar{m}=\frac{f(x_1)-f(x_0)}{x_1-x_0}.
+        \end{equation*}
+        Our method will be to gradually move the point \(x_1\) closer to \(x_0\) until the two points are indistinguishable from each other. The two points will be \textit{arbitrarily close} to each other. Then, the slope between the points will be the slope of the tangent line. The following graphs will visualize this method and find a tangent line for \(f(x)=x^2\) at \((1,1)\).
+        \begin{center}
+            \begin{tabular}{cccc}
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^2}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10, dashed] {8*(x-1)/-4+1}; 
+                        \addplot [only marks] table {
+						1 1
+                        -3 9
+						};
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^2}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10, dashed] {3*(x-1)/-3+1}; 
+                        \addplot [only marks] table {
+						1 1
+                        -2 4
+						};
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^2}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10, dashed] {1.25*(x-1)/-2.5+1}; 
+                        \addplot [only marks] table {
+						1 1
+                        -1.5 2.25
+						};
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^2}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10, dashed] {-1*(x-1)/-1+1}; 
+                        \addplot [only marks] table {
+						1 1
+                        0 0
+						};
+                    \end{axis}
+                \end{tikzpicture}
+                \\
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^2}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {2*(x-1)+1}; 
+                        \addplot [only marks] table {
+						1 1
+						};
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^2}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10, dashed] {1.25*(x-1)/0.5+1}; 
+                        \addplot [only marks] table {
+						1 1
+                        1.5 2.25
+						};
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^2}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10, dashed] {3*(x-1)+1}; 
+                        \addplot [only marks] table {
+						1 1
+                        2 4
+						};
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}[scale=0.5]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {x^2}; 
+                        \addplot [domain=-10:10, restrict y to domain=-10:10, dashed] {8*(x-1)/2+1}; 
+                        \addplot [only marks] table {
+						1 1
+                        3 9
+						};
+                    \end{axis}
+                \end{tikzpicture}
+            \end{tabular}
+        \end{center}
+        \vphantom
+        \\
+        \\
+        We can say that the slope of the tangent line is the limit of the slopes of the secant lines \(\bar{m}\) as \(x_1\) approaches \(x_0\). That is,
+        \begin{equation*}
+            m=\lim_{x_1\to x_0}\frac{f(x_1)-f(x_0)}{x_1-x_0}.
+        \end{equation*}
+        Many texts will instead use
+        \begin{equation*}
+            m=\lim_{x\to a}\frac{f(x)-f(a)}{x-a}
+        \end{equation*}
+        to mean the same thing--the slope of the tangent line of \(f(x)\) at \((x_0,f(x_0))\), or equivalently, \((a,f(a))\). That means \(L(x)\) is given by
+        \begin{equation*}
+            L(x)=f(x_0)+\lim_{x_1\to x_0}\frac{f(x_1)-f(x_0)}{x_1-x_0}(x-x_0).
+        \end{equation*}
+        \\
+        \\
+        The specific answer to our question about \(f(x)=x^2\) is not important for now, but the process described certainly is. We will defer the computation to a later section.
+        \pagebreak
+        \\
+        \\
+        We will now turn to the velocity problem. Speedometers in cars are useful, as they help the driver keep track of the velocity they are going at very moment \(t_0\) in their journey. How is this instantaneous velocity defined, given that the average velocity of an object is given by its change in position divided by the elapsed time? The notion of ``elapsed time'' seems to require two distinct timestamps to measure. Again, the difficulty lies in that we are only given one value, \(t_0\), to determine the instantaneous velocity at. Suppose we are given a position function \(x(t)\). Then, the time elapsed between \(t_1\) and \(t_0\) is \(t_1-t_0\). The change in position is \(x(t_1)-x(t_0)\), meaning that the average velocity on the interval \([t_0,t_1]\) is
+        \begin{equation*}
+            \bar{v}=\frac{x(t_1)-x(t_0)}{t_1-t_0}.
+        \end{equation*}
+        To get a better approximation of the instantaneous velocity at \(t_0\), we can decrease the elapsed time by choosing \(t_1\) near \(t_0\) and take the limit as \(t_1\) approaches \(t_0\). Then, we have
+        \begin{equation*}
+            v=\lim_{t_1\to t_0}\frac{x(t_1)-x(t_0)}{t_1-t_0}.
+        \end{equation*}
+        Similarly, some texts may instead use
+        \begin{equation*}
+            v=\lim_{t\to a}\frac{x(t)-x(a)}{t-a}.
+        \end{equation*}
+        We will end with the notion that your car's speedometer uses the above technique with extremely small time intervals.
+
+    \pagebreak
+
+    \subsection{The Limit of a Function}
+
+        To solve the problems described in the previous section, we must learn to evaluate limits. With limits, we care not about the value of a function at some value \(x=a\). We instead care about how the function \textit{behaves} close to that value. Consider the following definition.
+        \begin{definition}{\Stop\,\,Limits}{limits}
+
+            We write
+            \begin{equation*}
+                \lim_{x\to a}f(x)=L
+            \end{equation*}
+            and say ``the limit of \(f(x)\), as \(x\) approaches \(a\)'' is \(L\) if and only if we can make the values of \(f(x)\) arbitrarily close to \(L\) by taking \(x\) to be sufficiently close to \(a\), on either side, while \(x\neq a\).
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        The above definition means that the values of \(f(x)\) get closer and closer to \(L\) as \(x\) gets closer and closer to \(a\), on either side. If this is not true, the limit does not exist. We will often abbreviate ``does not exist'' to ``DNE.'' The definition makes clear that the value of \(f(a)\) is irrelevant. We care only about the value of \(f(x)\) for \(x\) near \(a\). Consider the following graphs.
+        \begin{center}
+            \begin{tabular}{ccc}
+                \begin{tikzpicture}[scale=0.6]
+                    \begin{axis} [def]
+                        \addplot [domain=0:5, restrict y to domain=0:5] {x^3}; 
+                        \addplot [domain=-5:0, restrict y to domain=-5:0] {x}; 
+                        \addplot [only marks, mark=o] table {
+                        0 0
+                        };
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}[scale=0.6]
+                    \begin{axis} [def]
+                        \addplot [domain=0:5, restrict y to domain=0:5] {x^3}; 
+                        \addplot [domain=-5:0, restrict y to domain=-5:0] {x}; 
+                    \end{axis}
+                \end{tikzpicture}
+                &
+                \begin{tikzpicture}[scale=0.6]
+                    \begin{axis} [def]
+                        \addplot [domain=0:5, restrict y to domain=0:5] {x^3}; 
+                        \addplot [domain=-5:0, restrict y to domain=-5:0] {x}; 
+                        \addplot [only marks, mark=o] table {
+                        0 0
+                        };
+                        \addplot [only marks] table {
+                        0 2
+                        };
+                    \end{axis}
+                \end{tikzpicture}
+            \end{tabular}
+        \end{center}
+        \vphantom
+        \\
+        \\
+        At \(x=0\), all of the above graphs have different behavior; however, the limit, as \(x\) approaches \(0\) is the same regardless: \(0\). To estimate a limit as \(x\) approaches \(a\) with a graph of \(f(x)\), simply use a pen or other writing utensil to trace the graph toward \(x=a\), from both sides, and record the value that the function approaches, if there is one.
+        \pagebreak
+        \\
+        \\
+        We can often estimate the limit \(\lim_{x\to a}f(x)\) by creating a table of values for \(x\) and \(f(x)\) for \(x\) near \(a\). Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Estimating a Limit 1}{estlim1}
+            
+            Estimate the limit
+            \begin{equation*}
+                \lim_{x\to 0}\frac{\sin x}{x}.
+            \end{equation*}
+            Consider the following table.
+            \begin{center}
+                \begin{tabular}{|cc|}
+                    \hline
+                    \(x\) & \(f(x)\) \\
+                    \hline
+                    \(-1\) & \(0.84147098\) \\
+                    \(-0.1\) & \(0.99833417\) \\
+                    \(-0.01\) & \(0.99998333\) \\
+                    \(0.01\) & \(0.99998333\) \\
+                    \(0.1\) & \(0.99833417\) \\
+                    \(1\) & \(0.84147098\) \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            \vphantom
+            \\
+            \\
+            Therefore, we estimate that 
+            \begin{equation*}
+                \lim_{x\to 0}\frac{\sin x}{x}=1
+            \end{equation*}
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Estimating a Limit 2}{estlim2}
+            
+            Estimate the limit
+            \begin{equation*}
+                \lim_{x\to 0}\frac{1-\cos x}{x}.
+            \end{equation*}
+            Consider the following table.
+            \begin{center}
+                \begin{tabular}{|cc|}
+                    \hline
+                    \(x\) & \(f(x)\) \\
+                    \hline
+                    \(-1\) & \(-0.45969769\) \\
+                    \(-0.1\) & \(-0.049958347\) \\
+                    \(-0.01\) & \(-0.0049999583\) \\
+                    \(0.01\) & \(0.0049999583\) \\
+                    \(0.1\) & \(0.049958347\) \\
+                    \(1\) & \(0.45969769\) \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            Therefore, we estimate that 
+            \begin{equation*}
+                \lim_{x\to 0}\frac{1-\cos x}{x}=0
+            \end{equation*}
+
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Estimating a Limit 3}{estlim3}
+            
+            Estimate the limit
+            \begin{equation*}
+                \lim_{x\to 0}\sin\left(\frac{1}{x}\right)
+            \end{equation*}
+            Consider the following table.
+            \begin{center}
+                \begin{tabular}{|cc|}
+                    \hline
+                    \(x\) & \(f(x)\) \\
+                    \hline
+                    \(-1\) & \(0\) \\
+                    \(-0.1\) & \(0\) \\
+                    \(-0.01\) & \(0\) \\
+                    \(0.01\) & \(0\) \\
+                    \(0.1\) & \(0\) \\
+                    \(1\) & \(0\) \\
+                    \hline
+                \end{tabular}
+            \end{center}
+            Therefore, we estimate that 
+            \begin{equation*}
+                \lim_{x\to 0}\sin\left(\frac{1}{x}\right)=0.
+            \end{equation*}
+            However, this is wrong, and a good reminder to be cautious while estimating. Consider the following graph of \(\sin\left(\frac{1}{x}\right)\).
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis} [def]
+                        \addplot [domain=-pi:pi, samples=1000, restrict y to domain=-5:5] {sin(deg(1/x))}; 
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+            \vphantom
+            \\
+            \\
+            We see that as \(x\) approaches zero, it is not true that \(\sin\left(\frac{1}{x}\right)\) approaches zero. Instead, the function oscillates between \(-1\) and \(1\) infinitely many times. Therefore
+            \begin{equation*}
+                \lim_{x\to 0}\sin\left(\frac{1}{x}\right)\text{ DNE}.
+            \end{equation*}
+
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Often, it is useful to only scrutinize the limiting behavior of one side of some \(a\) instead of looking at both sides. Consider the following definition and related theorem.
+        \begin{definition}{\Stop\,\,One-Sided Limits}{onesidedlimits}
+
+            We write
+            \begin{equation*}
+                \lim_{x\to a^-}f(x)=L
+            \end{equation*}
+            and say ``the left-hand limit of \(f(x)\) as \(x\) approaches \(a\)'' is \(L\) if and only if we can make the values of \(f(x)\) arbitrarily close to \(L\) by taking \(x\) to be sufficiently close to \(a\) and \(x<a\).
+            \\
+            \\
+            We write
+            \begin{equation*}
+                \lim_{x\to a^+}f(x)=L
+            \end{equation*}
+            and say ``the right-hand limit of \(f(x)\) as \(x\) approaches \(a\)'' is \(L\) if and only if we can make the values of \(f(x)\) arbitrarily close to \(L\) by taking \(x\) to be sufficiently close to \(a\) and \(x>a\).
+
+        \end{definition}
+        \begin{theorem}{\Stop\,\,The Relationship Between Limits and One-Sided Limits}{limonelim}
+            
+            For some function \(f(x)\), \(\lim_{x\to a}f(x)=L\) if and only if \(\lim_{x\to a^-}f(x)=L=\lim_{x\to a^+}f(x)\).
+
+        \end{theorem}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following example.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Limits Graphically}{graphlim}
+            
+            Let \(f(x)\) be defined by the following graph.
+            \begin{center}
+                \begin{tikzpicture}[scale=1]
+                    \begin{axis} [def]
+                        \addplot [domain=0:5, restrict y to domain=0:5] {x^3}; 
+                        \addplot [domain=-2:0, restrict y to domain=0:5] {x^2}; 
+                        \addplot [domain=-5:-2, restrict y to domain=-5:0] {x}; 
+                        \addplot [only marks, mark=o] table {
+                        -2 4
+                        0 0
+                        -2 -2
+                        };
+                        \addplot [only marks] table {
+                        0 2
+                        };
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+            \vphantom
+            \\
+            \\
+            Find the quantities
+            \begin{equation*}
+                \lim_{x\to -2^-}f(x),\quad \lim_{x\to -2^+}f(x),\quad \lim_{x\to 0^-}f(x),\quad \lim_{x\to 0^+}f(x),
+            \end{equation*}
+            and
+            \begin{equation*}
+                \lim_{x\to -2}f(x),\quad \lim_{x\to 0}f(x).
+            \end{equation*}
+            We see that
+            \begin{equation*}
+                \lim_{x\to -2^-}f(x)=-2,\quad \lim_{x\to -2^+}f(x)=4,\quad \lim_{x\to 0^-}f(x)=0,\quad \lim_{x\to 0^+}f(x)=0,
+            \end{equation*}
+            so
+            \begin{equation*}
+                \lim_{x\to -2}f(x)\text{ DNE},\quad \lim_{x\to 0}f(x)=0.
+            \end{equation*}
+
+        \end{example}
+
+\pagebreak
+
 \section{Week 2: January 23 -- January 27}
+
+    \subsection{Calculating Limits Using the Limit Laws}
+
+        Consider the following properties of limits.
+        \begin{theorem}{\Stop\,\,Limit Laws}{limlaws}
+
+            Let \(a\) and \(c\) be constants and let the limits \(\lim_{x\to a}f(x)\) and \(\lim_{x\to a}g(x)\) exist. Then,
+            \begin{enumerate}
+                \item \(\lim\limits_{x\to a}[f(x)\pm g(x)]=\lim\limits_{x\to a}f(x)\pm\lim\limits_{x\to a}g(x)\).
+                \item \(\lim\limits_{x\to a}[cf(x)]=c\lim\limits_{x\to a}f(x)\).
+                \item \(\lim\limits_{x\to a}[f(x)g(x)]=\lim\limits_{x\to a}f(x)\lim\limits_{x\to a}g(x)\).
+                \item \(\lim\limits_{x\to a}\left[\frac{f(x)}{g(x)}\right]=\frac{\lim\limits_{x\to a}f(x)}{\lim\limits_{x\to a}g(x)}\) if \(\lim\limits_{x\to a}g(x)\neq0\).
+                \item \(\lim\limits_{x\to a}c=c\).
+                \item \(\lim\limits_{x\to a}x=a\).
+            \end{enumerate}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        If we take the laws in Theorem \ref{thm:limlaws} for granted, we have the following consequences.
+        \begin{theorem}{\Stop\,\,Derived Limit Laws}{derlimlaws}
+
+            Let \(a\) and \(c\) be constants and let the limit \(\lim_{x\to a}f(x)\) exist. Let \(n\) be a positive integer. Then,
+            \begin{enumerate}
+                \item \(\lim\limits_{x\to a}[f(x)]^n=\left[\lim\limits_{x\to a}f(x)\right]^n\).
+                \item \(\lim\limits_{x\to a}\sqrt[n]{f(x)}=\sqrt[n]{\lim\limits_{x\to a}f(x)}\).
+                \item \(\lim\limits_{x\to a}x^n=a^n\).
+                \item \(\lim\limits_{x\to a}\sqrt[n]{x}=\sqrt[n]{a}\).
+            \end{enumerate}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Theorems \ref{thm:limlaws} and \ref{thm:derlimlaws} allow us to claim the following.
+        \begin{theorem}{\Stop\,\,Direct Substitution}{dirsub}
+
+            If \(f\) is a polynomial or rational function and \(a\) is in the domain of \(f\),
+            \begin{equation*}
+                \lim_{x\to a}f(x)=f(a).
+            \end{equation*}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        There exist other functions with the property described in Theorem \ref{thm:dirsub}, but we will postpone their discussion to a later section.
+        \pagebreak
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Direct Substitution 1}{dirsub1}
+
+            Evaluate \(\lim_{x \to 2}(x^3+2x^2-11x-7)\).
+            \\
+            \\
+            We see that
+            \begin{align*}
+                \lim_{x \to 2}(x^3+2x^2-11x-7)&=(2)^3+2(2)^2-11(2)-7 \\
+                &=8+8-22-7 \\
+                &=-13.
+            \end{align*}
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Direct Substitution 2}{dirsub2}
+            
+            Evaluate \(\lim_{x \to 3}\frac{2x}{x-4}\).
+            \\
+            \\
+            We see that
+            \begin{align*}
+                \lim_{x \to 3}\frac{2x}{x-4}&=\frac{2(3)}{(3)-4} \\
+                &=-6.
+            \end{align*}
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Most of the time, direct substitution will not work, but it is often beneficial to try it before trying anything else. It will certainly not work when the function is not defined at the value the limit is being evaluated at, and it is beneficial to use caution when considering piecewise functions. Consider the following theorem.
+        \begin{theorem}{\Stop\,\,Limit Equivalence of Two Functions}{limequivtwofunc}
+            
+            If \(f(x)=r(x)\) whenever \(x\neq a\),
+            \begin{equation*}
+                \lim_{x\to a}f(x)=\lim_{x\to a }r(x).
+            \end{equation*}
+
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        When given a function \(f(x)\) where direct substitution fails, we will find a function \(r(x)\) such that \(f(x)=r(x)\) whenever \(x\neq a\) and compute \(\lim_{x\to a}r(x)\). Then, we will use Theorem \ref{thm:limequivtwofunc} to conclude that \(\lim_{x\to a}r(x)=\lim_{x\to a}f(x)\). This process is called removing a discontinuity.
+        \pagebreak
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Removing a Discontinuity 1}{remdiscont1}
+
+            Evaluate \(\lim_{x\to -3}\frac{x^2+6x+6}{x+3}\). 
+            \\
+            \\
+            Let \(f(x)=\frac{x^2+6x+6}{x+3}\). We note that direct substitution fails on \(f(x)\) since \(f(x)\) is not defined at \(x=-3\). We cannot use our limit laws since \(\lim_{x\to -3}(x+3)=0\). We must find \(r(x)\) such that \(r(x)=f(x)\) whenever \(x\neq -3\). Consider
+            \begin{align*}
+                f(x)&=\frac{x^2+5x+6}{x+3} \\
+                &=\frac{(x+3)(x+2)}{x+3} \\
+                &=x+2,\quad {x\neq -3}.
+            \end{align*}
+            Then \(r(x)=x+2=f(x)\), except at \(x=-3\); \(r(-3)=-1\) while \(f(-3)\) is not defined. Then we can apply direct substitution on \(r(x)\) to obtain
+            \begin{align*}
+                \lim_{x\to -3}\frac{x^2+6x+6}{x+3}&=\lim_{x\to -3}(x+2) \\
+                &=-3+2 \\
+                &=1.
+            \end{align*}
+        
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Removing a Discontinuity 2}{remdiscont2}
+
+            Evaluate \(\lim_{x \to -5}\frac{x^3+5x^2}{x+5}\).
+            \\
+            \\
+            Let \(f(x)=\frac{x^3+5x^2}{x+5}\). We note that direct substitution fails on \(f(x)\) since \(f(x)\) is not defined at \(x=-5\). We cannot use our limit laws since \(\lim_{x\to -5}(x+5)=0\). We must find \(r(x)\) such that \(r(x)=f(x)\) whenever \(x\neq -5\). Consider
+            \begin{align*}
+                f(x)&=\frac{x^3+5x^2}{x+5} \\
+                &=\frac{x^2(x+5)}{x+5} \\
+                &=x^2,\quad x\neq 5.
+            \end{align*}
+            Then \(r(x)=x^2=f(x)\), except at \(x=-5\); \(r(-5)=25\) while \(f(-5)\) is not defined. Then we can apply direct substitution on \(r(x)\) to obtain
+            \begin{align*}
+                \lim_{x \to -5}\frac{x^3+5x^2}{x+5}&=\lim_{x\to -5}x^2 \\
+                &=25.
+            \end{align*}
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Removing a Discontinuity 3}{remdiscont3}
+
+            Evaluate \(\lim_{x \to 7}\frac{\sqrt{x+9}-4}{x-7}\).
+            \\
+            \\
+            Let \(f(x)=\frac{\sqrt{x+9}-4}{x-7}\). We note that direct substitution fails on \(f(x)\) since \(f(x)\) is not defined at \(x=7\). We cannot use our limit laws since \(\lim_{x\to 7}(x-7)=0\). We must find \(r(x)\) such that \(r(x)=f(x)\) whenever \(x\neq 7\). Consider
+            \begin{align*}
+                f(x)&=\frac{\sqrt{x+9}-4}{x-7} \\
+                &=\frac{\sqrt{x+9}-4}{x-7}\frac{\sqrt{x+9}+4}{\sqrt{x+9}+4} \\
+                &=\frac{x+9-16}{(x-7)(\sqrt{x+9}+4)} \\
+                &=\frac{1}{\sqrt{x+9}+4},\quad x\neq 7.
+            \end{align*}
+            Then \(r(x)=\frac{1}{\sqrt{x+9}+4}=f(x)\), except at \(x=7\); \(r(7)=\frac{1}{8}\) while \(f(7)\) is not defined. Then we can apply direct substitution on \(r(x)\) to obtain
+            \begin{align*}
+                \lim_{x \to 7}\frac{\sqrt{x+9}-4}{x-7}&=\lim_{x\to 7}\frac{1}{\sqrt{x+9}+4} \\
+                &=\frac{1}{8}.
+            \end{align*}
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Piecewise Functions and Direct Substitution}{piecewisedirsub}
+
+            Let \(f(x)=\begin{cases} x+5 & x \neq 2 \\ e & x=2 \end{cases}\). Evaluate \(\lim_{x \to 2}f(x)\).
+            \\
+            \\
+            If we try direct substitution, we may come to the conclusion that the desired limit is simply \(e\); however, this is not the case, as we can construct \(r(x)=x+5\) and note that \(r(x)=f(x)\) whenever \(x\neq 2\). Therefore,
+            \begin{align*}
+                \lim_{x \to 2}f(x)&=\lim_{x \to 2}r(x) \\
+                &=2+5 \\
+                &=7.
+            \end{align*}
+            
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        For piecewise functions in particular, it is often beneficial to compute the one-sided limits when trying to find a limit. Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Piecewise Functions and One-Sided Limits 1}{piecewiseonesided1}
+
+            Let \(f(x)=\begin{cases} x+5 & x \neq 2 \\ e & x=2 \end{cases}\). Evaluate \(\lim_{x \to 2}f(x)\).
+            \\
+            \\
+            For \(x>2\), \(f(x)=x+5\). Therefore, \(\lim_{x\to 2^+}f(x)=7\). Similarly, for \(x<2\), \(f(x)=x+5\), so \(\lim_{x\to 2^-}f(x)=7\). Therefore, \(\lim_{x \to 2}f(x)=7\).
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Piecewise Functions and One-Sided Limits 2}{piecewiseonesided2}
+
+            Let \(f(x)=\frac{|x|}{x}\). Evaluate \(\lim_{x \to 0}f(x)\).
+            \\
+            \\
+            We will first rewrite \(f(x)\) as a piecewise function to obtain
+            \begin{equation*}
+                f(x)=\begin{cases} 1 & x>0 \\ -1 & x<0 \end{cases}.
+            \end{equation*}
+            Then, for \(x>0\), \(f(x)=1\), so \(\lim_{x\to 0^+}f(x)=1\). For \(x<0\), \(f(x)=-1\), so \(\lim_{x\to 0^-}f(x)=-1\). Therefore, \(\lim_{x\to 0}f(x)\text{ DNE}\).
+            
+        \end{example}
+        \vphantom
+        \\
+        \\
+        The next two theorems will be very useful in evaluating limits.
+        \begin{theorem}{\Stop\,\,Limits Preserve Inequalities}{limineq}
+
+            If \(f(x)\leq g(x)\) when \(x\) is near \(a\), except possibly at \(x=a\), and \(\lim_{x\to a}f(x)\) and \(\lim_{x\to a}g(x)\) both exist,
+            \begin{equation*}
+                \lim_{x\to a}f(x)\leq\lim_{x\to a}g(x).
+            \end{equation*}
+            
+        \end{theorem}
+        \pagebreak
+        \begin{theorem}{\Stop\,\,The Squeeze Theorem}{squeezethm}
+
+            If \(f(x)\leq g(x)\leq h(x)\) when \(x\) is near \(a\), except possibly at \(x=a\) and
+            \begin{equation*}
+                \lim_{x\to a}f(x)=\lim_{x\to a}h(x)=L,
+            \end{equation*}
+            then,
+            \begin{equation*}
+                \lim_{x\to a}g(x)=L.
+            \end{equation*}
+            Consider the following diagram to illustrate. Here, \(f(x)=-x^2\), \(g(x)=x^2\sin\left(\frac{1}{x}\right)\), and \(h(x)=x^2\).
+            \begin{center}
+                \begin{tikzpicture}[scale=1]
+                    \begin{axis} [def]
+                        \addplot [domain=-0.5:0.5, restrict y to domain=-0.5:0.5] {x^2}; 
+                        \addplot [domain=-0.5:0.5, restrict y to domain=-0.5:0.5] {-x^2}; 
+                        \addplot [domain=-0.5:0.5, restrict y to domain=-0.5:0.5] {x^2*sin(deg(1/x))};
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+            
+        \end{theorem}
 
 \section{Week 3: January 30 -- February 3}
 
