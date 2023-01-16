@@ -617,14 +617,75 @@
             \begin{center}
                 \begin{tikzpicture}[scale=1]
                     \begin{axis} [def]
-                        \addplot [domain=-0.5:0.5, restrict y to domain=-0.5:0.5] {x^2}; 
-                        \addplot [domain=-0.5:0.5, restrict y to domain=-0.5:0.5] {-x^2}; 
-                        \addplot [domain=-0.5:0.5, restrict y to domain=-0.5:0.5] {x^2*sin(deg(1/x))};
+                        \addplot [domain=-0.2:0.2, restrict y to domain=-0.2:0.2] {x^2}; 
+                        \addplot [domain=-0.2:0.2, restrict y to domain=-0.2:0.2] {-x^2}; 
+                        \addplot [domain=-0.2:0.2, restrict y to domain=-0.2:0.2] {x^2*sin(deg(1/x))};
                     \end{axis}
                 \end{tikzpicture}
             \end{center}
             
         \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Squeeze Theorem 1}{squeeze1}
+
+           Evaluate \(\lim_{x\to 0}x^3\sin\left(\frac{1}{x^3}\right)\).
+           \\
+           \\
+           Note that \(-1\leq \sin x\leq 1\). This means \(-1\leq \sin\left(\frac{1}{x^3}\right)\leq 1\); therefore, \(-x^3\leq x^3\sin\left(\frac{1}{x^3}\right)\leq x^3\). We see that \(\lim_{x\to 0}-x^3=0=\lim_{x\to 0}x^3\). Therefore,
+           \begin{equation*}
+                \lim_{x\to 0}x^3\sin\left(\frac{1}{x^3}\right)=0.
+           \end{equation*}
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Squeeze Theorem 2}{squeeze2}
+
+            Evaluate \(\lim_{x\to 0}x^2e^{\sin\left(\frac{1}{x}\right)}\).
+            \\
+            \\
+            Note that \(-1\leq \sin x\leq 1\). This means \(-1\leq \sin\left(\frac{1}{x}\right)\leq 1\); therefore, \(e^{-1}\leq e^{\sin\left(\frac{1}{x}\right)}\leq e^1\). Finally, \(x^2e^{-1}\leq x^2e^{\sin\left(\frac{1}{x}\right)}\leq x^2e^1\). We see that \(\lim_{x\to 0}x^2e^{-1}=0=\lim_{x\to 0}x^2e^1\). Therefore,
+            \begin{equation*}
+                \lim_{x\to 0}x^2e^{\sin\left(\frac{1}{x}\right)}=0.
+            \end{equation*}
+            
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Finally, we will provide two very useful trigonometric limits; the justification lies in the Squeeze Theorem and a geometric argument.
+        \begin{theorem}{\Stop\,\,Useful Trigonometric Limits}{specialtriglims}
+
+            Consider the limits
+            \begin{equation*}
+                \lim_{x\to 0}\frac{\sin x}{x}=1,\quad\lim_{x\to 0}\frac{1-\cos x}{x}=0.
+            \end{equation*}
+            
+        \end{theorem}
+
+    \pagebreak
+
+    \subsection{Continuity}
+
+        We will now revisit Theorem \ref{thm:dirsub}. We wish to discover functions where \(\lim_{x\to a}f(x)=f(a)\). Intuitively, this is true for all functions that can be graphed with one stroke of a pen. For example, all polynomials and rational functions have this property on their domain. We will define this property as ``continuity.''
+        \begin{definition}{\Stop\,\,Continuity}{continuity}
+
+            A function \(f(x)\) is continuous at \(x=a\) if and only if
+            \begin{equation*}
+                \lim_{x\to a}f(x)=f(a).
+            \end{equation*}
+            Equivalently, a function is continuous at \(x=a\) if and only if all the following conditions hold.
+            \begin{enumerate}
+                \item \(f(a)\) is defined.
+                \item \(\lim\limits_{x\to a}f(x)\) exists.
+                \item \(f(a)=\lim\limits_{x\to a}f(x)\).
+            \end{enumerate}
+            
+        \end{definition}
+
+\pagebreak
 
 \section{Week 3: January 30 -- February 3}
 
