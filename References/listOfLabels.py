@@ -33,7 +33,7 @@ for i, _ in enumerate(lines):
     else: lines[i] = line
       
     lines[i] += " \\\\"
-    
+        
 nonempty = [i for i in lines if i != "" and i[0] != " "]
 print("\n".join(nonempty))
 

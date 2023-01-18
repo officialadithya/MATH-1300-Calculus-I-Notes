@@ -684,6 +684,50 @@
             \end{enumerate}
             
         \end{definition}
+        \vphantom
+        \\
+        \\
+        We remark that if a function \(f(x)\) is not continuous at \(x=a\), \(f\) is discontinuous at \(a\). Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Continuity With a Graph 1}{contgraph1}
+
+            Refer to the graph in Example \ref{exa:estlim3}. State the intervals that \(f(x)\) is continuous on.
+            \\
+            \\
+            Since \(\lim_{x\to 0}f(x)\text{ DNE}\), \(f\) is only continuous on \((-\infty,0)\cup(0,\infty)\). An alternative justification for \(f\) being discontinous at \(x=0\) is that \(f(0)\) is undefined.
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Continuity With a Graph 2}{contgraph2}
+
+            Refer to the graph in Example \ref{exa:graphlim}. State the intervals that \(f(x)\) is continuous on.
+            \\
+            \\
+            Since \(\lim_{x\to -2}f(x)\text{ DNE}\) and \(f(0)\neq\lim_{x\to 0}f(x)\), \(f\) is only continous on \((-\infty,-2)\cup(-2,0)\cup(0,\infty)\).
+            
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Continuity Analytically 1}{contanal1}
+
+            Let \(f(x)=\frac{x^2+5x+6}{x+3}\). State the intervals that \(f(x)\) is continuous on.
+            \\
+            \\
+            Note that \(f(-3)\) is undefined. Therefore, \(f\) is continuous on \((-\infty,-3)\cup(-3,\infty)\).
+
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Continuity Analytically 2}{contanal2}
+
+            Let
+            \begin{equation*}
+                f(x)=\begin{cases}
+                    \frac{x^2+5x+6}{x+3} & x\neq -3 \\
+                    \pi & x=3
+                \end{cases}.
+            \end{equation*}
+            State the intervals that \(f(x)\) is continuous on.
+            \\
+            \\
+            Here \(f(-3)\) is defined; \(f(-3)=\pi\); however, \(\lim_{x\to-3}f(x)=1\). Since \(\lim_{x\to-3}f(x)\neq f(-3)\), \(f\) is continuous on \((-\infty,-3)\cup(-3,\infty)\).
+
+        \end{example}
 
 \pagebreak
 
