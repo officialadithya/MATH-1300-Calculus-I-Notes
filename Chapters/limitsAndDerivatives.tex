@@ -718,19 +718,233 @@
             Let
             \begin{equation*}
                 f(x)=\begin{cases}
-                    \frac{x^2+5x+6}{x+3} & x\neq -3 \\
-                    \pi & x=3
+                    \frac{x^2-4x+3}{x-1} & x\neq -1 \\
+                    \pi & x=-1
                 \end{cases}.
             \end{equation*}
             State the intervals that \(f(x)\) is continuous on.
             \\
             \\
-            Here \(f(-3)\) is defined; \(f(-3)=\pi\); however, \(\lim_{x\to-3}f(x)=1\). Since \(\lim_{x\to-3}f(x)\neq f(-3)\), \(f\) is continuous on \((-\infty,-3)\cup(-3,\infty)\).
+            Here \(f(-1)\) is defined; \(f(-1)=\pi\); however, \(\lim_{x\to-1}f(x)=-4\). Since \(\lim_{x\to-1}f(x)\neq f(-1)\), \(f\) is continuous on \((-\infty,-1)\cup(-1,\infty)\).
 
         \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Continuity Analytically 3}{contanal3}
+
+            Let \(f(x)=\tan x\). Where is \(f(x)\) discontinuous?
+            \\
+            \\
+            Note that \(f(x)\) is undefined for \(x=\frac{\pi}{2}+k\pi\), where \(k\) is an integer. Therefore, \(f\) is discontinous at \(x=\frac{\pi}{2}+k\pi\) for all integers \(k\).
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        There are two major types of discontinuities, each corresponding to a prong of Definition \ref{def:continuity}.
+        \begin{enumerate}
+            \item When \(\lim\limits_{x\to a}f(x)\) exists, and \(f(a)\) is not defined, \(f\) has a removable discontinuity at \(x=a\).
+            \item When \(\lim\limits_{x\to a}f(x)\) does not exist, regardless of whether \(f(a)\) is defined, \(f\) has a non-removable discontinuity at \(x=a\).
+        \end{enumerate}
+        \vphantom
+        \\
+        \\
+        Often, requiring the existence of \(\lim_{x\to a}\) is not useful; instead, we can solely consider \(\lim_{x\to a^{-}}\) or \(\lim_{x\to a^{+}}\) when we explicitly specify. Consider the following definition.
+        \begin{definition}{\Stop\,\,One-Sided Continuity}{onesidedcont}
+
+            A function \(f\) is continuous from the right at \(x=a\) if and only if
+            \begin{equation*}
+                \lim_{x\to a^+}f(x)=f(a),
+            \end{equation*}
+            and \(f\) is continuous from the left at \(x=a\) if and only if
+            \begin{equation*}
+                \lim_{x\to a^-}f(x)=f(a).
+            \end{equation*}
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        Definition \ref{def:onesidedcont} helps us construct the notion of continuity on an interval. We have implicitly used the following definition in the above examples.
+        \begin{definition}{\Stop\,\,Continuity on an Interval}{intervalcont}
+
+            A function \(f\) is continuous on an interval if it is continuous at every number in the interval. If \(f\) is defined only on one side of an endpoint, we understand ``continuous at the endpoint'' to mean continuous from the right or continuous from the left.
+            
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        It is often possible to describe the continuity of a function using the definitions stated before, but it is usually difficult. The following theorem allows us to determine the continuity of a new function if we can represent it in terms of a function we already know the continuity of using basic operations.
+        \begin{theorem}{\Stop\,\,Continuity of New Functions}{continuityofnewfunc}
+
+            If \(f\) and \(g\) are continuous at \(x=a\) and \(c\) is a constant, all the following functions are also continuous.
+            \begin{enumerate}
+                \item \(f\pm g\).
+                \item \(fg\).
+                \item \(\frac{f}{g}\) if \(g(a)\neq0\).
+                \item \(cf\).
+            \end{enumerate}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        We provide the following theorem without proof, but it follows from the theorems presented in this section.
+        \begin{theorem}{\Stop\,\,Continuous Functions}{contfunc}
+
+            The following types of functions are continuous at every number in their domains:
+            \begin{enumerate}
+                \item Polynomials.
+                \item Root Functions.
+                \item Rational Functions.
+                \item Trigonometric Functions.
+                \item Exponential Functions.
+                \item Logarithmic Functions.
+            \end{enumerate}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Continuity Analytically 4}{contanal4}
+
+            Let \(f(x)=\frac{e^{2x}+\ln(5x)}{(x-2)(x+6)}\).
+            State the intervals that \(f(x)\) is continuous on.
+            \\
+            \\
+            The denominator is continuous for \(x\neq2\) and \(x\neq-6\); the numerator is continuous for \(x>0\). Therefore, \(f\) is continuous on \((0,2)\cup(2.\infty)\).
+
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Continuity Analytically 5}{contanal5}
+
+            Let \(f(x)=\frac{7+\sin x}{3+\cos x}\).
+            State the intervals that \(f(x)\) is continuous on.
+            \\
+            \\
+            Both the numerator and denominator are continuous, and \(3+\cos x\neq 0\) for all \(x\). Therefore, \(f\) is continuous on \((-\infty,\infty)\). 
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Consider the following theorems.
+        \begin{theorem}{\Stop\,\,Limit of a Composition}{limcomp}
+
+            If \(f\) is continuous at \(x=b\) and \(\lim_{x\to a}g(x)=b\),
+            \begin{align*}
+                \lim_{x\to a}f(g(x))&=f(b) \\
+                &=f\left(\lim_{x\to a}g(x)\right).
+            \end{align*}
+            
+        \end{theorem}
+        \begin{theorem}{\Stop\,\,Composition of Continuous Functions is Continuous}{compcontcont}
+
+           If \(g\) is continuous at \(x=a\) and \(f\) is continuous at \(g(a)\), \((f\circ g)(x)=f(g(x))\) is continuous at \(x=a\).
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Theorem \ref{thm:compcontcont} is true because if \(g\) is continuous at \(x=a\), \(\lim_{x\to a}g(x)=g(a)\), and if \(f\) is continuous at \(b=g(a)\),
+        \begin{align*}
+            \lim_{x\to a}f(g(x))&=f\left(\lim_{x\to a}g(x)\right) \\
+            &=f(g(a))
+        \end{align*}
+        by Theorem \ref{thm:limcomp}, as desired.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Continuity Analytically 6}{contanal6}
+
+            Let \(f(x)=\sin(\cos(x^3))\).
+            State the intervals that \(f(x)\) is continuous on.
+            \\
+            \\
+            Let \(p(x)=x^3\), \(q(x)=\cos x\), \(r(x)=\sin x\), and \(s(x)=\cos(x^3)\). Note that \(p(x)\), \(q(x)\), and \(r(x)\) are continuous. Since \(s(x)=(q\circ p)(x)\), \(s(x)\) is continuous. Therefore, since \(f(x)=(r\circ s)(x)\), \(f\) is continuous on \((-\infty,\infty)\).
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        Before we introduce the next theorem, we will turn to a familar application. Imagine a function modelling the speed of your car as a function of time. For example, when you back out of your parking space, you are driving very slowly, perhaps, \(3\text{ mph}\). Later in the drive, you decide to go \(90\text{ mph}\) on Interstate Highway I25, since you're feeling like breaking the speed limit because you were having so much fun doing Calculus I homework that you were running late to your favorite mathematics club meeting in Lost Springs, Wyoming. You're looking forward to being \(\frac{1}{7}\) of the population while you're there. The other six people who live in Lost Springs plan to ask you if, at any point in your drive, you went \(75\text{ mph}\). What will you say? The Intermediate Value Theorem will help you, and the residents of Lost Springs. Be sure to print out the next page and present it to them as a gift.
+        \pagebreak
+        \\
+        \\
+        Consider the following theorem.
+        \begin{theorem}{\Stop\,\,The Intermediate Value Theorem}{ivt}
+
+            Suppose that \(f\) is continuous on the closed interval \([a,b]\). Let \(N\) be some real number between \(f(a)\) and \(f(b)\), where \(f(a)\neq f(b)\). Then, there exists some \(c\) in \((a,b)\) such that \(f(c)=N\).
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Theorem \ref{thm:ivt}, which will often be referred to by name, states that to go from one value to another value, on some interval, a continuous function must take on all values in between. A useful application is that if some continuous function \(f(x)\) is negative at \(x=a\) and positive at \(x=b\), \(f\) has a root at some \(c\) where \(a<c<b\). Importantly, the Intermediate Value Theorem is an existence theorem. When all conditions are satisfied, it guarantees the existence of \(c\) with the desired properties. It does not give any direction on how to find \(c\).
+        \\
+        \\
+        Consider the following examples. 
+        \begin{example}{\Difficulty\,\Difficulty\,\,Using the Intermediate Value Theorem to Find Roots}{ivtroot}
+
+            Show that \(f(x)=x^7+3x^6+5x^3+2x-1\) has a root on the interval \((-1,1)\). 
+            \\
+            \\
+            Note that \(f(x)\) is continuous for all \(x\) since \(f\) is a polynomial. Then, \(f(-1)=-6\) and \(f(1)=10\). Let \(N=0\) and note that \(-6<N<10\). Therefore, by the Intermediate Value Theorem, there exists some \(c\) in \((-1,1)\) where \(f(c)=N=0\), so \(c\) is a root of \(f\).
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Lost Springs, WY}{lostspringswy}
+
+            If you haven't read the block of text on the last page. Do so now. What will you say to the residents of Lost Springs, Wyoming?
+            \\
+            \\
+            Your drive to Lost Springs, WY can be modeled as a function of time where \(f(t)\) gives the speed you were driving at time \(t\). Intuitively, this function is continuous. To go from one speed to another, we must each all speeds in between. From the previous page, \(f(0)=3\text{ mph}\) and \(f(t_H)=90\text{ mph}\) where \(t_0\) is the point in time when you're backing out of our parking space and \(t_H\) is the point in time you're driving at \(90\text{ mph}\) on Interstate Highway I25. Let \(N=75\text{ mph}\) and note that \(3\text{ mph}<N<90\text{ mph}\). Therefore, by the Intermediate Value Theorem, there exists some time \(c\) in \((0,t_H)\) where \(f(c)=75\text{ mph}\). Therefore, at some point in your drive, you were going \(75\text{ mph}\).
+
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Before using the Intermediate Value Theorem to make an argument, we must justify that the conditions for the theorem are satisfied. If they are not, the Intermediate Value Theorem cannot apply. Consider the following example of an incorrect argument using the Intermediate Value Theorem.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Incorrectly Using the Intermediate Value Theorem to Find Roots}{incorrectlyivtroot}
+
+            Show that \(f(x)=x^7+3x^6+5x^3+2x-1\) has a root on the interval \((-1,1)\). 
+            \\
+            \\
+            Note that \(f(-1)=-6\) and \(f(1)=10\). Let \(N=0\) and note that \(-6<N<10\). Therefore, by the Intermediate Value Theorem, there exists some \(c\) in \((-1,1)\) where \(f(c)=N=0\), so \(c\) is a root of \(f\).
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        In Example \ref{exa:incorrectlyivtroot}, we did not justify that \(f(x)\) was continuous. Our argument is invalid. The Intermediate Value Theorem, in general, does not apply to discontinuous functions.
 
 \pagebreak
 
 \section{Week 3: January 30 -- February 3}
+
+    \subsection{Infinite Limits}
+
+        Infinite limits help us classify certain limits that do not exist. Consider the following definition.
+        \begin{definition}{\Stop\,\,Infinite Limits}{inflim}
+
+            The notation \(\lim_{x\to a}f(x)=\infty\) means that \(f(x)\) can be made arbitrarily large by making \(x\) sufficiently close to \(a\), on both sides.
+            \\
+            \\
+            The notation \(\lim_{x\to a}f(x)=-\infty\) means that \(f(x)\) can be made arbitrarily small by making \(x\) sufficiently close to \(a\), on both sides.
+
+        \end{definition}
+        \vphantom
+        \\
+        \\
+        It is important to note that infinite limits do not exist. The notation \(``=\infty''\) or \(``=-\infty''\) does not convey that \(\infty\) or \(-\infty\) are real numbers, in any sense. With the notion of infinite limits and Definition \ref{def:inflim}, we can define vertical asymptotes with limits. Consider the following definition.
+        \begin{definition}{\Stop\,\,Vertical Asymptotes}{vertasymp}
+            
+            The line \(x=a\) is a vertical asymptote of \(f(x)\) if and only if at least one of the following statements is true.
+            \begin{enumerate}
+                \item \(\lim\limits_{x\to a}f(x)=\infty\).
+                \item \(\lim\limits_{x\to a}f(x)=-\infty\).
+                \item \(\lim\limits_{x\to a^-}f(x)=\infty\).
+                \item \(\lim\limits_{x\to a^-}f(x)=-\infty\).
+                \item \(\lim\limits_{x\to a^+}f(x)=\infty\).
+                \item \(\lim\limits_{x\to a^+}f(x)=-\infty\).
+            \end{enumerate}
+
+        \end{definition}
 
 \section{Week 4: February 6 -- February 10}
