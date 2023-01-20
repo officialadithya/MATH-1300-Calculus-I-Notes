@@ -932,7 +932,7 @@
         \vphantom
         \\
         \\
-        It is important to note that infinite limits do not exist. The notation \(``=\infty''\) or \(``=-\infty''\) does not convey that \(\infty\) or \(-\infty\) are real numbers, in any sense. With the notion of infinite limits and Definition \ref{def:inflim}, we can define vertical asymptotes with limits. Consider the following definition.
+        It is important to note that infinite limits do not exist. The notation \(``=\infty''\) or \(``=-\infty''\) does not convey that \(\infty\) or \(-\infty\) are real numbers, in any sense. Also, one-sided limits are defined similarly. With the notion of infinite limits and Definition \ref{def:inflim}, we can define vertical asymptotes with limits. Consider the following definition.
         \begin{definition}{\Stop\,\,Vertical Asymptotes}{vertasymp}
             
             The line \(x=a\) is a vertical asymptote of \(f(x)\) if and only if at least one of the following statements is true.
@@ -946,5 +946,53 @@
             \end{enumerate}
 
         \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Stop\,\,Determining Infinite Limits Graphically}{detinflimgraph}
+            Let \(f(x)\) be defined by the following graph.
+            \begin{center}
+                \begin{tikzpicture}[scale=1]
+                    \begin{axis} [def]
+                        \addplot [domain=-5:-1, restrict y to domain=-5:5] {1/(x+2)};
+                        \addplot [domain=-2:-2, dashed] coordinates {(-2,-5)(-2,5)};
+                        \addplot [domain=-1:2, restrict y to domain=-5:5] {1/x^2};
+                        \addplot [domain=2:5, restrict y to domain=-5:5] {-1/(x-4)^2};
+                        \addplot [domain=-2:-2, dashed] coordinates {(4,-5)(4,5)};
+                        \addplot [only marks, mark=o] table {
+                        -1 1
+                        2 0.25
+                        2 -0.25
+                        };
+                        \addplot [only marks] table {
+                        0 2
+                        2 3
+                        };
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+            \vphantom
+            \\
+            \\
+            Find the quantities
+            \begin{equation*}
+                \lim_{x\to -2^-}f(x),\quad \lim_{x\to -2^+}f(x),\quad \lim_{x\to 0^-}f(x),\quad \lim_{x\to 0^+}f(x),\quad \lim_{x\to 4^-}f(x),\quad \lim_{x\to 4^+}f(x),
+            \end{equation*}
+            and
+            \begin{equation*}
+                \lim_{x\to -2}f(x),\quad \lim_{x\to 0}f(x),\quad \lim_{x\to 4}f(x).
+            \end{equation*}
+            We see that
+            \begin{align*}
+                \lim_{x\to -2^-}f(x)=-\infty,\quad \lim_{x\to -2^+}f(x)=\infty,\quad \lim_{x\to 0^-}f(x)=\infty, \\ \lim_{x\to 0^+}f(x)=\infty,\quad \lim_{x\to 4^-}f(x)=-\infty,\quad \lim_{x\to 4^+}f(x)=\infty,
+            \end{align*}
+            so
+            \begin{equation*}
+                \lim_{x\to -2}f(x)\text{ DNE},\quad \lim_{x\to 0}f(x)=\infty,\quad \lim_{x\to 4}f(x)=-\infty.
+            \end{equation*}
+        \end{example}
+
 
 \section{Week 4: February 6 -- February 10}
