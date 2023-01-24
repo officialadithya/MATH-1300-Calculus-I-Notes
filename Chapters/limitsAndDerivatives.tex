@@ -918,7 +918,7 @@
 
 \section{Week 3: January 30 -- February 3}
 
-    \subsection{Infinite Limits}
+    \subsection{Limits Involving Infinity}
 
         Infinite limits help us classify certain limits that do not exist. Consider the following definition.
         \begin{definition}{\Stop\,\,Infinite Limits}{inflim}
@@ -951,7 +951,7 @@
         \\
         \\
         Consider the following examples.
-        \begin{example}{\Stop\,\,Determining Infinite Limits Graphically}{detinflimgraph}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Infinite Limits Graphically}{detinflimgraph}
             Let \(f(x)\) be defined by the following graph.
             \begin{center}
                 \begin{tikzpicture}[scale=1]
@@ -984,15 +984,174 @@
             \begin{equation*}
                 \lim_{x\to -2}f(x),\quad \lim_{x\to 0}f(x),\quad \lim_{x\to 4}f(x).
             \end{equation*}
+            Also, write equations for all vertical asymptotes of \(f\).
+            \\
+            \\
             We see that
             \begin{align*}
-                \lim_{x\to -2^-}f(x)=-\infty,\quad \lim_{x\to -2^+}f(x)=\infty,\quad \lim_{x\to 0^-}f(x)=\infty, \\ \lim_{x\to 0^+}f(x)=\infty,\quad \lim_{x\to 4^-}f(x)=-\infty,\quad \lim_{x\to 4^+}f(x)=\infty,
+                \lim_{x\to -2^-}f(x)=-\infty,\quad \lim_{x\to -2^+}f(x)=\infty,\quad \lim_{x\to 0^-}f(x)=\infty, \\ \lim_{x\to 0^+}f(x)=\infty,\quad \lim_{x\to 4^-}f(x)=-\infty,\quad \lim_{x\to 4^+}f(x)=-\infty,
             \end{align*}
             so
             \begin{equation*}
                 \lim_{x\to -2}f(x)\text{ DNE},\quad \lim_{x\to 0}f(x)=\infty,\quad \lim_{x\to 4}f(x)=-\infty.
             \end{equation*}
+            Therefore, the lines \(x=-2\), \(x=0\), and \(x=4\) are all vertical asymptotes for \(f\).
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,One-Sided Infinite Limits 1}{evalinflimanal1}
+            
+            Evaluate \(\lim_{x\to 5^-}\frac{3x}{x-5}\) and \(\lim_{x\to 5^+}\frac{3x}{x-5}\).
+            \\
+            \\
+            Let \(f(x)=\frac{3x}{x-5}\). As \(x\) approaches \(5\) from the left, the denominator is a negative number appraoching \(0\), while the numerator is a positive number close to \(15\). Therefore, the function will decrease without bound as \(x\) approaches \(5\) from the left. Thus, \(\lim_{x\to5^-}f(x)=-\infty\). Similarly, as \(x\) approaches \(5\) from the right, the denominator is a positive number appraoching \(0\), and the numerator is still a positive number close to \(15\). Therefore, the function will increase without bound, as \(x\) approaches \(5\) from the right. Thus, \(\lim_{x\to5^+}f(x)=\infty\).
+
+        \end{example}
+        \begin{example}{\Difficulty\,\Difficulty\,\,One-Sided Infinite Limits 2}{evalinflimanal2}
+            
+            Evaluate \(\lim_{x\to3^+}\ln((x-1)^2(x-3))\).
+            \\
+            \\
+            Let \(f(x)=\ln((x-1)^2(x-3))\) and note that the domain of \(f\) is \((3,\infty)\). This is because the argument of the natural logarithm forming \(f\) is only positive for \(x>3\). The factor \((x-1)^2\) will always be positive, so the sign of the argument depends on the factor \(x-3\). The argument of the natural logarithm is also zero when \(x=1\) or \(x=3\). But, since \(f\) is not defined for \(x\) near \(1\), we may ignore this \(x\) value for now. Let \(u=(x-1)^2(x-3)\). We see that \(\lim_{x\to 3^+}u=0\). Therefore,
+            \begin{align*}
+                \lim_{x\to 3^+}\ln((x-1)^2(x-3))&=\lim_{u\to0^+}\ln u \\
+                &=-\infty.
+            \end{align*}
+            The last line is justified by the graph of \(y=\ln x\).
+
+        \end{example}
+        \vphantom
+        \\
+        \\
+        We will now turn our attention to limits at infinity. Consider the following definition.
+        \begin{definition}{\Stop\,\,Limits at Infinity}{liminf}
+
+            Let \(f\) be a function defined on \((a,\infty)\). Then,
+            \begin{equation*}
+                \lim_{x\to\infty}f(x)=L
+            \end{equation*}
+            if and only if the values of \(f(x)\) can be made arbitrarily close to \(L\) by taking sufficiently large \(x\). Similarly,
+            \begin{equation*}
+                \lim_{x\to\infty}f(x)=L
+            \end{equation*}
+            if and only if the values of \(f(x)\) can be made arbitrarily close to \(L\) by taking sufficiently small \(x\).
+
+        \end{definition}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        Unlike infinite limits, limits at infinity do exist if they are equal to some \(L\). With the notion of limits at infinity and Definition \ref{def:liminf}, we can define horizontal asymptotes with limits. Consider the following definition.
+        \begin{definition}{\Stop\,\,Horizontal Asymptotes}{horasymp}
+
+            The line \(y=L\) is a horizontal asymptote of \(f(x)\) if and only if either
+            \begin{equation*}
+                \lim_{x\to\infty}=L
+            \end{equation*}
+            or
+            \begin{equation*}
+                \lim_{x\to-\infty}=L.
+            \end{equation*}
+            
+        \end{definition}
+        \begin{example}{\Difficulty\,\Difficulty\,\,Determining Limits at Infinity Graphically}{detliminfgraph}
+            Let \(f(x)\) be defined by the following graph.
+            \begin{center}
+                \begin{tikzpicture}[scale=1]
+                    \begin{axis} [def]
+                        \addplot [domain=-10:10, restrict y to domain=-10:10] {(3*x-2)/(sqrt(4*x^2+5))};
+                        \addplot [domain=-10:10, dashed] coordinates {(-10,-3/2)(10,-3/2)};
+                        \addplot [domain=-10:10, dashed] coordinates {(-10,3/2)(10,3/2)};
+                        \addplot[mark=*] coordinates {(0,3/2)} node[pin=150:{\((0,\frac{3}{2})\)}]{};
+                        \addplot[mark=*] coordinates {(0,-3/2)} node[pin=330:{\((0,-\frac{3}{2})\)}]{};
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+            \vphantom
+            \\
+            \\
+            Find the quantities
+            \begin{equation*}
+                \lim_{x\to-\infty}f(x)
+            \end{equation*}
+            and
+            \begin{equation*}
+                \lim_{x\to\infty}f(x).
+            \end{equation*}
+            Also, write equations for all horizontal asymptotes of \(f\).
+            \\
+            \\
+            We see that
+            \begin{equation*}
+                \lim_{x\to-\infty}f(x)=-\frac{3}{2}
+            \end{equation*}
+            and
+            \begin{equation*}
+                \lim_{x\to\infty}f(x)=\frac{3}{2}
+            \end{equation*}
+            Therefore, the lines \(y=-\frac{3}{2}\) and \(y=\frac{3}{2}\) are both horizontal asymptotes for \(f\).
+        \end{example}
+        \pagebreak
+        \vphantom
+        \\
+        \\
+        The following theorem is extremely useful when finding limits at infinity.
+        \begin{theorem}{\Stop\,\,Limit at Infinity of a Reciprocal Function}{liminfrecipro}
+
+            Let \(n\) be a positive integer. Then,
+            \begin{equation*}
+                \lim_{x\to\pm\infty}x^n=0.
+            \end{equation*}
+            
+        \end{theorem}
+        \vphantom
+        \\
+        \\
+        Consider the following examples.
+        \begin{example}{\Difficulty\,\Difficulty\,\,Limits at Infinity 1}{liminf1}
+
+            Evaluate \(\lim_{x\to\infty}\frac{4x^3+2x^2+3x+1}{3x^3+6x+1}\) and \(\lim_{x\to-\infty}\frac{4x^3+2x^2+3x+1}{3x^3+6x+1}\).
+            \\
+            \\
+            To find both limits, we will divide both the numerator and the denominator by the highest power occuring in the denominator, in this case, \(x^3\). Then, we will apply Theorem \ref{thm:liminfrecipro}. Consider the manipulation
+            \begin{align*}
+                \lim_{x\to\infty}\frac{4x^3+2x^2+3x+1}{3x^3+6x+1}&=\lim_{x\to\infty}\frac{\frac{4x^3+2x^2+3x+1}{x^3}}{\frac{3x^3+6x+1}{x^3}} \\
+                &=\lim_{x\to\infty}\frac{4+\frac{2}{x}+\frac{3}{x^2}+\frac{1}{x^3}}{3+\frac{6}{x^2}+\frac{1}{x^3}} \\
+                &=\frac{\lim\limits_{x\to\infty}\left(4+\frac{2}{x}+\frac{3}{x^2}+\frac{1}{x^3}\right)}{\lim\limits_{x\to\infty}\left(3+\frac{6}{x^2}+\frac{1}{x^3}\right)} \\
+                &=\frac{4}{3}.
+            \end{align*}
+            Similarly,
+            \begin{align*}
+                \lim_{x\to-\infty}\frac{4x^3+2x^2+3x+1}{3x^3+6x+1}&=\lim_{x\to-\infty}\frac{\frac{4x^3+2x^2+3x+1}{x^3}}{\frac{3x^3+6x+1}{x^3}} \\
+                &=\lim_{x\to-\infty}\frac{4+\frac{2}{x}+\frac{3}{x^2}+\frac{1}{x^3}}{3+\frac{6}{x^2}+\frac{1}{x^3}} \\
+                &=\frac{\lim\limits_{x\to-\infty}\left(4+\frac{2}{x}+\frac{3}{x^2}+\frac{1}{x^3}\right)}{\lim\limits_{x\to-\infty}\left(3+\frac{6}{x^2}+\frac{1}{x^3}\right)} \\
+                &=\frac{4}{3}.
+            \end{align*}
+        \end{example}
+        \pagebreak
+        \begin{example}{\Difficulty\,\Difficulty\,\,Limits at Infinity 2}{liminf2}
+            
+            Evaluate \(\lim_{x\to\infty}\frac{3x-2}{\sqrt{4x^2+5}}\) and \(\lim_{x\to-\infty}\frac{3x-2}{\sqrt{4x^2+5}}\).
+            \\
+            \\
+            To find both limits, we will divide both the numerator and the denominator by the highest power occuring in the denominator, in this case, \(|x|=\sqrt{x^2}\). Then, we will apply Theorem \ref{thm:liminfrecipro}. Consider the manipulation
+            \begin{align*}
+                \lim_{x\to\infty}\frac{3x-2}{\sqrt{4x^2+5}}&=\lim_{x\to\infty}\frac{\frac{3x-2}{|x|}}{\frac{\sqrt{4x^2+5}}{\sqrt{x^2}}} \\
+                &=\lim_{x\to\infty}\frac{\frac{3x}{|x|}-\frac{2}{|x|}}{\sqrt{4+\frac{5}{x^2}}} \\
+                &=\frac{\lim\limits_{x\to\infty}\left(\frac{3x}{|x|}-\frac{2}{|x|}\right)}{\lim\limits_{x\to\infty}\left(\sqrt{4+\frac{5}{x^2}}\right)} \\
+                &=\frac{\lim\limits_{x\to\infty}\left(\frac{3x}{|x|}\right)}{\lim\limits_{x\to\infty}\left(\sqrt{4}\right)} \\
+                &=\frac{3}{2}.
+            \end{align*}
+            Similarly,
+            \begin{align*}
+                \lim_{x\to-\infty}\frac{3x-2}{\sqrt{4x^2+5}}&=\lim_{x\to-\infty}\frac{\frac{3x-2}{|x|}}{\frac{\sqrt{4x^2+5}}{\sqrt{x^2}}} \\
+                &=\lim_{x\to-\infty}\frac{\frac{3x}{|x|}-\frac{2}{|x|}}{\sqrt{4+\frac{5}{x^2}}} \\
+                &=\frac{\lim\limits_{x\to-\infty}\left(\frac{3x}{|x|}-\frac{2}{|x|}\right)}{\lim\limits_{x\to-\infty}\left(\sqrt{4+\frac{5}{x^2}}\right)} \\
+                &=\frac{\lim\limits_{x\to-\infty}\left(\frac{3x}{|x|}\right)}{\lim\limits_{x\to-\infty}\left(\sqrt{4}\right)} \\
+                &=-\frac{3}{2}.
+            \end{align*}
+            Note that the difference in sign between the limits is due to \(|x|\). The term \(\frac{x}{|x|}\) is positive when \(x>0\) and negative when \(x<0\) since \(|x|\geq0\) for all \(x\).
         \end{example}
 
+\pagebreak
 
 \section{Week 4: February 6 -- February 10}
